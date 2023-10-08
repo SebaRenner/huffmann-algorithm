@@ -21,6 +21,6 @@ public class Encoder
 
     private void CreateHuffmannTree(Dictionary<char, int> charFrequencyMap)
     {
-        
+        var tree = new HuffmannTree(charFrequencyMap);
     }
 }
