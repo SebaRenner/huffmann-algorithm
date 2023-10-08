@@ -2,14 +2,20 @@
 
 public class Encoder
 {
-    public Encoder() { }
-
     public string Encode(string text)
     {
         var dict = CountCharacters(text);
-        CreateHuffmannTree(dict);
+        var huffmannTable = new HuffmannTree().CreateHuffmanCode(dict);
 
-        return text;
+        var encodedText = string.Empty;
+        var chars = text.ToCharArray();
+
+        foreach (var c in chars)
+        {
+            encodedText += huffmannTable[c];
+        }
+
+        return encodedText;
     }
 
     private Dictionary<char, int> CountCharacters(string text)
@@ -19,8 +25,4 @@ public class Encoder
              .ToDictionary(group => group.Key, group => group.Count());
     }
 
-    private void CreateHuffmannTree(Dictionary<char, int> charFrequencyMap)
-    {
-        var tree = new HuffmannTree(charFrequencyMap);
-    }
 }

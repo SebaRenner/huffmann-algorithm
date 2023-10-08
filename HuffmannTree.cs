@@ -2,16 +2,11 @@
 
 public class HuffmannTree
 {
-    public HuffmannTree(Dictionary<char, int> charFrequencyMap)
+    public Dictionary<char, string> CreateHuffmanCode(Dictionary<char, int> charFrequencyMap)
     {
         var nodes = CreateNodes(charFrequencyMap);
         var tree = CreateTree(nodes);
-        var table = CreateHuffmannTable(tree);
-
-        foreach (var node in table)
-        {
-            Console.WriteLine(node.Key + ": " + node.Value);
-        }
+        return CreateHuffmannTable(tree);
     }
 
     private IEnumerable<HuffmannNode> CreateNodes(Dictionary<char, int> charFrequencyMap)
@@ -30,15 +25,15 @@ public class HuffmannTree
 
         while (sorted.Count > 1) 
         {
-            var leftNode = sorted.Min();
-            sorted.Remove(leftNode!);
+            var leftNode = sorted.MinBy(node => node.Frequency);
+            sorted.Remove(leftNode);
 
-            var rightNode = sorted.Min();
-            sorted.Remove(rightNode!);
+            var rightNode = sorted.MinBy(node => node.Frequency);
+            sorted.Remove(rightNode);
 
             var parent = new HuffmannNode
             {
-                CharSequenz = $"{leftNode!.CharSequenz}{rightNode!.CharSequenz}",
+                CharSequenz = $"{leftNode.CharSequenz}{rightNode.CharSequenz}",
                 Frequency = leftNode.Frequency + rightNode.Frequency,
                 LeftChild = leftNode,
                 RightChild = rightNode
@@ -62,18 +57,18 @@ public class HuffmannTree
     private Dictionary<char, string> CreateHuffmannTable(IEnumerable<HuffmannNode> tree)
     {
         var table = new Dictionary<char, string>();
-        if (tree.Count() == 0) return table;
+        if (!tree.Any()) return table;
 
         var root = tree.MaxBy(node => node.CharSequenz.Length);
-        var chars = root!.CharSequenz.ToCharArray();
+        var chars = root.CharSequenz.ToCharArray();
 
         foreach (var c in chars)
         {
             var currentNode = root;
             var code = "";
-            while ((currentNode.LeftChild != null || currentNode.RightChild != null) && (currentNode.LeftChild.CharSequenz.Contains(c) || currentNode.RightChild.CharSequenz.Contains(c)))
+            while (HasChildNode(currentNode) && HasCharInChild(currentNode, c))
             {
-                if (currentNode.RightChild.CharSequenz.Contains(c))
+                if (HasCharInRightChildNode(currentNode, c))
                 {
                     code += "1";
                     currentNode = currentNode.RightChild;
@@ -89,5 +84,27 @@ public class HuffmannTree
         }
 
         return table;
+    }
+
+    private bool HasChildNode(HuffmannNode node)
+    {
+        return node.LeftChild != null || node.RightChild != null;
+    }
+
+    private bool HasCharInChild(HuffmannNode node, char target)
+    {
+        return HasCharInLeftChildNode(node, target) || HasCharInRightChildNode(node, target);
+    }
+
+    private bool HasCharInLeftChildNode(HuffmannNode node, char target)
+    {
+        if (node.LeftChild == null) return false;
+        return node.LeftChild.CharSequenz.Contains(target);
+    }
+
+    private bool HasCharInRightChildNode(HuffmannNode node, char target)
+    {
+        if (node.RightChild == null) return false;
+        return node.RightChild.CharSequenz.Contains(target);
     }
 }
