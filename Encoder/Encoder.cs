@@ -1,8 +1,8 @@
-﻿namespace Huffmann;
+﻿namespace Huffmann.Encoder;
 
 public class Encoder
 {
-    public string Encode(string text)
+    public string HuffmannEncode(string text)
     {
         var dict = CountCharacters(text);
         var huffmannTable = new HuffmannTree().CreateHuffmanCode(dict);

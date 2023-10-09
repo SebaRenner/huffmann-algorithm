@@ -6,7 +6,7 @@ public class HuffmannTree
     {
         var nodes = CreateNodes(charFrequencyMap);
         var tree = CreateTree(nodes);
-        return CreateHuffmannTable(tree);
+        return CreateHuffmannCode(tree);
     }
 
     private IEnumerable<HuffmannNode> CreateNodes(Dictionary<char, int> charFrequencyMap)
@@ -46,15 +46,10 @@ public class HuffmannTree
 
         tree.Add(sorted.First());
 
-        //foreach (var node in tree)
-        //{
-        //    Console.WriteLine($"{node.CharSequenz}: {node.Frequency}");
-        //}
-
         return tree;
     }
 
-    private Dictionary<char, string> CreateHuffmannTable(IEnumerable<HuffmannNode> tree)
+    private Dictionary<char, string> CreateHuffmannCode(IEnumerable<HuffmannNode> tree)
     {
         var table = new Dictionary<char, string>();
         if (!tree.Any()) return table;
