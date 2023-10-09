@@ -1,4 +1,4 @@
-﻿namespace Huffmann;
+﻿namespace Huffmann.Huffmann;
 
 public class HuffmannTree
 {
@@ -23,7 +23,7 @@ public class HuffmannTree
         var sorted = new SortedSet<HuffmannNode>(nodes);
         var tree = new List<HuffmannNode>();
 
-        while (sorted.Count > 1) 
+        while (sorted.Count > 1)
         {
             var leftNode = sorted.MinBy(node => node.Frequency);
             sorted.Remove(leftNode);
@@ -67,7 +67,7 @@ public class HuffmannTree
                 {
                     code += "1";
                     currentNode = currentNode.RightChild;
-                } 
+                }
                 else
                 {
                     code += "0";

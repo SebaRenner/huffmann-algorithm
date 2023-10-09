@@ -1,4 +1,4 @@
-﻿namespace Huffmann;
+﻿namespace Huffmann.Huffmann;
 
 public class HuffmannNodeComparer : IComparer<HuffmannNode>
 {
