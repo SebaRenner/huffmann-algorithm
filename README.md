@@ -1,6 +1,7 @@
 # Huffmann Text Decompression Algorithm
 Huffmann coding is a loseless text compression algorithm. It substitutes each character in a text with a binary code. The higher the frequency of a character in the text, the lower the code.
-It's mathematically proven that it's the optimal algorithm of its kind*
+
+It's mathematically proven to be the optimal algorithm of its kind*
 
 \* Symbol-by-symbol coding with a known input probability distribution
 
