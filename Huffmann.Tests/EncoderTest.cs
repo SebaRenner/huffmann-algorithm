@@ -1,3 +1,5 @@
+using Huffmann.Huffmann.Encoder;
+
 namespace Huffmann.Tests;
 
 public class EncoderTest
@@ -6,6 +8,7 @@ public class EncoderTest
     public void Test_Encoder()
     {
         // Arrange
+        var encoder = new Encoder();
 
         // Act
 

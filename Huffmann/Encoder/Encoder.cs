@@ -1,6 +1,6 @@
-﻿using Huffmann.Huffmann;
+﻿using Huffmann.Huffmann.Huffmann;
 
-namespace Huffmann.Encoder;
+namespace Huffmann.Huffmann.Encoder;
 
 public class Encoder
 {

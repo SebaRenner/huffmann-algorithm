@@ -1,4 +1,4 @@
-﻿using Huffmann.Encoder;
+﻿using Huffmann.Huffmann.Encoder;
 
 Console.WriteLine("Enter a text you'd like to be compressed using the huffmann algorithm");
 var input = string.Empty;
