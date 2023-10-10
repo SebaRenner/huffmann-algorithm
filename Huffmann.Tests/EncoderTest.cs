@@ -9,9 +9,14 @@ public class EncoderTest
     {
         // Arrange
         var encoder = new Encoder();
+        var input = "MISSISSIPPI";
+        var expected = "100110011001110110111";
 
         // Act
+        var code = encoder.HuffmannEncode(input);
 
         // Assert
+        Assert.NotNull(code);
+        Assert.Equal(expected, code);
     }
 }

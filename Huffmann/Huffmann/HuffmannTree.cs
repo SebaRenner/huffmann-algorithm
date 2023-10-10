@@ -2,8 +2,10 @@
 
 public class HuffmannTree
 {
-    public Dictionary<char, string> CreateHuffmanCode(Dictionary<char, int> charFrequencyMap)
+    public Dictionary<char, string> CreateHuffmannCode(Dictionary<char, int> charFrequencyMap)
     {
+        if (charFrequencyMap.Keys.Count < 2) throw new ArgumentException();
+
         var nodes = CreateNodes(charFrequencyMap);
         var tree = CreateTree(nodes);
         return CreateHuffmannCode(tree);

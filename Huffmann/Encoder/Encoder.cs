@@ -7,7 +7,7 @@ public class Encoder
     public string HuffmannEncode(string text)
     {
         var dict = CountCharacters(text);
-        var huffmannTable = new HuffmannTree().CreateHuffmanCode(dict);
+        var huffmannTable = new HuffmannTree().CreateHuffmannCode(dict);
 
         var encodedText = string.Empty;
         var chars = text.ToCharArray();
