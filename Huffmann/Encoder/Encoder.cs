@@ -1,4 +1,6 @@
-﻿namespace Huffmann.Encoder;
+﻿using Huffmann.Huffmann;
+
+namespace Huffmann.Encoder;
 
 public class Encoder
 {
