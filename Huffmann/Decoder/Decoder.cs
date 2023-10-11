@@ -1,4 +1,4 @@
-﻿namespace Huffmann.Decoder;
+﻿namespace Huffmann.Huffmann.Decoder;
 
 public class Decoder
 {
