@@ -16,7 +16,7 @@ public class EncoderTest
         var code = encoder.HuffmannEncode(input);
 
         // Assert
-        Assert.NotNull(code);
-        Assert.Equal(expected, code);
+        Assert.NotNull(code.EncodedText);
+        Assert.Equal(expected, code.EncodedText);
     }
 }

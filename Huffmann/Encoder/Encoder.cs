@@ -4,7 +4,7 @@ namespace Huffmann.Huffmann.Encoder;
 
 public class Encoder
 {
-    public string HuffmannEncode(string text)
+    public HuffmannCode HuffmannEncode(string text)
     {
         var dict = CountCharacters(text);
         var huffmannTable = new HuffmannTree().CreateHuffmannCode(dict);
@@ -17,7 +17,7 @@ public class Encoder
             encodedText += huffmannTable[c];
         }
 
-        return encodedText;
+        return new (encodedText, huffmannTable);
     }
 
     private Dictionary<char, int> CountCharacters(string text)
