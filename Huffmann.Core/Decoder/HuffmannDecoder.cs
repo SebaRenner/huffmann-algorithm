@@ -18,7 +18,7 @@ public class HuffmannDecoder
             {
                 partialCode += code[pointer];
 
-                if (substitutionTable.Values.Contains(partialCode))
+                if (substitutionTable.ContainsValue(partialCode))
                 {
                     encodedText += substitutionTable.First(x => x.Value == partialCode).Key;
                     found = true;
@@ -30,7 +30,7 @@ public class HuffmannDecoder
                 if (pointer == code.Length) break;
             }
 
-            code = code.Substring(pointer+1);
+            code = code.Substring(pointer + 1);
         }
 
         return encodedText;

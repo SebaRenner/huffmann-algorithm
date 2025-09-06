@@ -26,5 +26,4 @@ public class HuffmannEncoder
              .GroupBy(c => c)
              .ToDictionary(group => group.Key, group => group.Count());
     }
-
 }
