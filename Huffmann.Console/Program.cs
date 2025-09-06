@@ -14,15 +14,13 @@ while (input?.Length < 2)
     }
 }
 
-var encoder = new HuffmannEncoder();
-var encodedText = encoder.Encode(input);
+var encodedText = HuffmannEncoder.Encode(input);
 
 var inputLength = input.Length * 8;
 var encodedTextLength = encodedText.EncodedText.Length;
 var compressionRate = Math.Round(100 - (double)encodedTextLength / inputLength * 100, 2);
 
-var decoder = new HuffmannDecoder();
-var decodedText = decoder.Decode(encodedText.EncodedText, encodedText.SubstitutionTable);
+var decodedText = HuffmannDecoder.Decode(encodedText.EncodedText, encodedText.SubstitutionTable);
 
 Console.WriteLine();
 Console.WriteLine($"Original Text: {inputLength} Bit");

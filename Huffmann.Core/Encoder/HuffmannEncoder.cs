@@ -2,9 +2,9 @@
 
 namespace Huffmann.Core.Encoder;
 
-public class HuffmannEncoder
+public static class HuffmannEncoder
 {
-    public HuffmannCode Encode(string text)
+    public static HuffmannCode Encode(string text)
     {
         var dict = CountCharacters(text);
         var huffmannTable = new HuffmannTree().CreateHuffmannCode(dict);
@@ -20,7 +20,7 @@ public class HuffmannEncoder
         return new (encodedText, huffmannTable);
     }
 
-    private Dictionary<char, int> CountCharacters(string text)
+    private static Dictionary<char, int> CountCharacters(string text)
     {
         return text
              .GroupBy(c => c)

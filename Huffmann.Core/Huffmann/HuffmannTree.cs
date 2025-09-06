@@ -1,5 +1,7 @@
 ﻿namespace Huffmann.Core.Huffmann;
 
+// TODO: Class doens't follow SRP. Refactor it. 
+// Also why not static? 
 public class HuffmannTree
 {
     public Dictionary<char, string> CreateHuffmannCode(Dictionary<char, int> charFrequencyMap)

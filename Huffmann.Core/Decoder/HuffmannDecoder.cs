@@ -2,9 +2,9 @@
 
 namespace Huffmann.Core.Decoder;
 
-public class HuffmannDecoder
+public static class HuffmannDecoder
 {
-    public string Decode(string code, Dictionary<char, string> substitutionTable)
+    public static string Decode(string code, Dictionary<char, string> substitutionTable)
     {
         var encodedText = string.Empty;
 
@@ -36,7 +36,7 @@ public class HuffmannDecoder
         return encodedText;
     }
 
-    public string Decode(string code, IEnumerable<HuffmannNode> huffmannTree)
+    public static string Decode(string code, IEnumerable<HuffmannNode> huffmannTree)
     {
         var encodedText = string.Empty;
 

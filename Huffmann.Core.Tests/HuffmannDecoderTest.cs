@@ -3,13 +3,12 @@ using Huffmann.Core.Huffmann;
 
 namespace Huffmann.Core.Tests;
 
-public class DecoderTest
+public class HuffmannDecoderTest
 {
     [Fact]
-    public void Test_Decoder_FromTable()
+    public void Test_Decode_FromTable()
     {
         // Arrange
-        var decoder = new HuffmannDecoder();
         var encodedText = "100110011001110110111";
         var substitutionTable = new Dictionary<char, string>
         {
@@ -22,7 +21,7 @@ public class DecoderTest
         var expected = "MISSISSIPPI";
 
         // Act
-        var result = decoder.Decode(encodedText, substitutionTable);
+        var result = HuffmannDecoder.Decode(encodedText, substitutionTable);
 
         // Assert
         Assert.NotNull(result);
@@ -30,17 +29,16 @@ public class DecoderTest
     }
 
     [Fact]
-    public void Test_Decoder_FromTree()
+    public void Test_Decode_FromTree()
     {
         // Arrange
-        var decoder = new HuffmannDecoder();
         var encodedText = "100110011001110110111";
         var tree = CreateTestTree();
 
         var expected = "MISSISSIPPI";
 
         // Act
-        var result = decoder.Decode(encodedText, tree);
+        var result = HuffmannDecoder.Decode(encodedText, tree);
 
         // Assert
         Assert.NotNull(result);
