@@ -13,19 +13,19 @@ public class HuffmanTree
         return CreateHuffmanCode(tree);
     }
 
-    private IEnumerable<Huffmanode> CreateNodes(Dictionary<char, int> charFrequencyMap)
+    private IEnumerable<HuffmanNode> CreateNodes(Dictionary<char, int> charFrequencyMap)
     {
-        return charFrequencyMap.Keys.Select(c => new Huffmanode
+        return charFrequencyMap.Keys.Select(c => new HuffmanNode
         {
             CharSequenz = c.ToString(),
             Frequency = charFrequencyMap[c]
         });
     }
 
-    private IEnumerable<Huffmanode> CreateTree(IEnumerable<Huffmanode> nodes)
+    private IEnumerable<HuffmanNode> CreateTree(IEnumerable<HuffmanNode> nodes)
     {
-        var sorted = new SortedSet<Huffmanode>(nodes);
-        var tree = new List<Huffmanode>();
+        var sorted = new SortedSet<HuffmanNode>(nodes);
+        var tree = new List<HuffmanNode>();
 
         while (sorted.Count > 1)
         {
@@ -35,7 +35,7 @@ public class HuffmanTree
             var rightNode = sorted.MinBy(node => node.Frequency);
             sorted.Remove(rightNode);
 
-            var parent = new Huffmanode
+            var parent = new HuffmanNode
             {
                 CharSequenz = $"{leftNode.CharSequenz}{rightNode.CharSequenz}",
                 Frequency = leftNode.Frequency + rightNode.Frequency,
@@ -53,7 +53,7 @@ public class HuffmanTree
         return tree;
     }
 
-    private Dictionary<char, string> CreateHuffmanCode(IEnumerable<Huffmanode> tree)
+    private Dictionary<char, string> CreateHuffmanCode(IEnumerable<HuffmanNode> tree)
     {
         var table = new Dictionary<char, string>();
         if (!tree.Any()) return table;
@@ -85,23 +85,23 @@ public class HuffmanTree
         return table;
     }
 
-    private bool HasChildNode(Huffmanode node)
+    private bool HasChildNode(HuffmanNode node)
     {
         return node.LeftChild != null || node.RightChild != null;
     }
 
-    private bool HasCharInChild(Huffmanode node, char target)
+    private bool HasCharInChild(HuffmanNode node, char target)
     {
         return HasCharInLeftChildNode(node, target) || HasCharInRightChildNode(node, target);
     }
 
-    private bool HasCharInLeftChildNode(Huffmanode node, char target)
+    private bool HasCharInLeftChildNode(HuffmanNode node, char target)
     {
         if (node.LeftChild == null) return false;
         return node.LeftChild.CharSequenz.Contains(target);
     }
 
-    private bool HasCharInRightChildNode(Huffmanode node, char target)
+    private bool HasCharInRightChildNode(HuffmanNode node, char target)
     {
         if (node.RightChild == null) return false;
         return node.RightChild.CharSequenz.Contains(target);

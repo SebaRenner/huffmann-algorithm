@@ -45,43 +45,43 @@ public class HuffmanDecoderTest
         Assert.Equal(expected, result);
     }
 
-    private IEnumerable<Huffmanode> CreateTestTree()
+    private IEnumerable<HuffmanNode> CreateTestTree()
     {
-        var m = new Huffmanode
+        var m = new HuffmanNode
         {
             CharSequenz = "M",
             Frequency = 1
         };
-        var p = new Huffmanode
+        var p = new HuffmanNode
         {
             CharSequenz = "P",
             Frequency = 2
         };
-        var mp = new Huffmanode
+        var mp = new HuffmanNode
         {
             CharSequenz = "MP",
             Frequency = 3,
             LeftChild = m,
             RightChild = p
         };
-        var i = new Huffmanode
+        var i = new HuffmanNode
         {
             CharSequenz = "I",
             Frequency = 4
         };
-        var s = new Huffmanode
+        var s = new HuffmanNode
         {
             CharSequenz = "S",
             Frequency = 4
         };
-        var mpi = new Huffmanode
+        var mpi = new HuffmanNode
         {
             CharSequenz = "MPI",
             Frequency = 6,
             LeftChild = mp,
             RightChild = i,
         };
-        var smpi = new Huffmanode
+        var smpi = new HuffmanNode
         {
             CharSequenz = "SMPI",
             Frequency = 10,
@@ -89,6 +89,6 @@ public class HuffmanDecoderTest
             RightChild = mpi
         };
 
-        return new List<Huffmanode> { m, p, mp, i, s, mpi, smpi };
+        return new List<HuffmanNode> { m, p, mp, i, s, mpi, smpi };
     }
 }

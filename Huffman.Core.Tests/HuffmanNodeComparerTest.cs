@@ -9,12 +9,12 @@ public class HuffmanodeComparerTest
     {
         // Arrange
         var comparer = new HuffmanNodeComparer();
-        var nodeA = new Huffmanode
+        var nodeA = new HuffmanNode
         {
             CharSequenz = "A",
             Frequency = 1,
         };
-        var nodeB = new Huffmanode
+        var nodeB = new HuffmanNode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -32,12 +32,12 @@ public class HuffmanodeComparerTest
     {
         // Arrange
         var comparer = new HuffmanNodeComparer();
-        var nodeA = new Huffmanode
+        var nodeA = new HuffmanNode
         {
             CharSequenz = "A",
             Frequency = 3,
         };
-        var nodeB = new Huffmanode
+        var nodeB = new HuffmanNode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -55,12 +55,12 @@ public class HuffmanodeComparerTest
     {
         // Arrange
         var comparer = new HuffmanNodeComparer();
-        var nodeA = new Huffmanode
+        var nodeA = new HuffmanNode
         {
             CharSequenz = "A",
             Frequency = 2,
         };
-        var nodeB = new Huffmanode
+        var nodeB = new HuffmanNode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -78,7 +78,7 @@ public class HuffmanodeComparerTest
     {
         // Arrange
         var comparer = new HuffmanNodeComparer();
-        var nodeB = new Huffmanode
+        var nodeB = new HuffmanNode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -96,7 +96,7 @@ public class HuffmanodeComparerTest
     {
         // Arrange
         var comparer = new HuffmanNodeComparer();
-        var nodeA = new Huffmanode
+        var nodeA = new HuffmanNode
         {
             CharSequenz = "A",
             Frequency = 2,

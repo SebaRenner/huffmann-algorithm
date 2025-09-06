@@ -36,7 +36,7 @@ public static class HuffmanDecoder
         return encodedText;
     }
 
-    public static string Decode(string code, IEnumerable<Huffmanode> HuffmanTree)
+    public static string Decode(string code, IEnumerable<HuffmanNode> HuffmanTree)
     {
         var encodedText = string.Empty;
 
