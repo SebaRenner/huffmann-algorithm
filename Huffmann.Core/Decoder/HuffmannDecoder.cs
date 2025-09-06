@@ -1,10 +1,10 @@
-﻿using Huffmann.Huffmann.Huffmann;
+﻿using Huffmann.Core.Huffmann;
 
-namespace Huffmann.Huffmann.Decoder;
+namespace Huffmann.Core.Decoder;
 
-public class Decoder
+public class HuffmannDecoder
 {
-    public string HuffmannDecode(string code, Dictionary<char, string> substitutionTable)
+    public string Decode(string code, Dictionary<char, string> substitutionTable)
     {
         var encodedText = string.Empty;
 
@@ -36,7 +36,7 @@ public class Decoder
         return encodedText;
     }
 
-    public string HuffmannDecode(string code, IEnumerable<HuffmannNode> huffmannTree)
+    public string Decode(string code, IEnumerable<HuffmannNode> huffmannTree)
     {
         var encodedText = string.Empty;
 

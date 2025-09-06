@@ -1,7 +1,7 @@
-﻿using Huffmann.Huffmann.Decoder;
-using Huffmann.Huffmann.Huffmann;
+﻿using Huffmann.Core.Decoder;
+using Huffmann.Core.Huffmann;
 
-namespace Huffmann.Tests;
+namespace Huffmann.Core.Tests;
 
 public class DecoderTest
 {
@@ -9,7 +9,7 @@ public class DecoderTest
     public void Test_Decoder_FromTable()
     {
         // Arrange
-        var decoder = new Decoder();
+        var decoder = new HuffmannDecoder();
         var encodedText = "100110011001110110111";
         var substitutionTable = new Dictionary<char, string>
         {
@@ -22,7 +22,7 @@ public class DecoderTest
         var expected = "MISSISSIPPI";
 
         // Act
-        var result = decoder.HuffmannDecode(encodedText, substitutionTable);
+        var result = decoder.Decode(encodedText, substitutionTable);
 
         // Assert
         Assert.NotNull(result);
@@ -33,14 +33,14 @@ public class DecoderTest
     public void Test_Decoder_FromTree()
     {
         // Arrange
-        var decoder = new Decoder();
+        var decoder = new HuffmannDecoder();
         var encodedText = "100110011001110110111";
         var tree = CreateTestTree();
 
         var expected = "MISSISSIPPI";
 
         // Act
-        var result = decoder.HuffmannDecode(encodedText, tree);
+        var result = decoder.Decode(encodedText, tree);
 
         // Assert
         Assert.NotNull(result);

@@ -1,10 +1,10 @@
-﻿using Huffmann.Huffmann.Huffmann;
+﻿using Huffmann.Core.Huffmann;
 
-namespace Huffmann.Huffmann.Encoder;
+namespace Huffmann.Core.Encoder;
 
-public class Encoder
+public class HuffmannEncoder
 {
-    public HuffmannCode HuffmannEncode(string text)
+    public HuffmannCode Encode(string text)
     {
         var dict = CountCharacters(text);
         var huffmannTable = new HuffmannTree().CreateHuffmannCode(dict);

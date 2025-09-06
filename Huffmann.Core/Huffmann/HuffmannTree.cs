@@ -1,4 +1,4 @@
-﻿namespace Huffmann.Huffmann.Huffmann;
+﻿namespace Huffmann.Core.Huffmann;
 
 public class HuffmannTree
 {

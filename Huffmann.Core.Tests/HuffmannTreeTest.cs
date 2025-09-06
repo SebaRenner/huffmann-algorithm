@@ -1,6 +1,6 @@
-﻿using Huffmann.Huffmann.Huffmann;
+﻿using Huffmann.Core.Huffmann;
 
-namespace Huffmann.Tests;
+namespace Huffmann.Core.Tests;
 
 public class HuffmannTreeTest
 {
