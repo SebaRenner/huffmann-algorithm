@@ -2,20 +2,19 @@
 
 namespace Huffman.Core.Tests;
 
-public class HuffmanTreeTest
+public class HuffmanCodeGeneratorTest
 {
     [Fact]
     public void Test_CreateHuffmanCode_1Char()
     {
         // Arrange
-        var testee = new HuffmanTree();
         var dict = new Dictionary<char, int>
         {
             { 'a', 2 },
         };
 
         // Act
-        var act = () => testee.CreateHuffmanCode(dict);
+        var act = () => HuffmanCodeGenerator.CreateCode(dict);
 
         // Assert
         Assert.Throws<ArgumentException>(act);
@@ -25,7 +24,6 @@ public class HuffmanTreeTest
     public void Test_CreateHuffmanCode_2Chars()
     {
         // Arrange
-        var testee = new HuffmanTree();
         var dict = new Dictionary<char, int>
         {
             { 'a', 2 },
@@ -33,7 +31,7 @@ public class HuffmanTreeTest
         };
 
         // Act
-        var result = testee.CreateHuffmanCode(dict);
+        var result = HuffmanCodeGenerator.CreateCode(dict);
 
         // Assert
         Assert.NotNull(result);
@@ -47,7 +45,6 @@ public class HuffmanTreeTest
     public void Test_CreateHuffmanCode_3Chars()
     {
         // Arrange
-        var testee = new HuffmanTree();
         var dict = new Dictionary<char, int>
         {
             { 'a', 2 },
@@ -56,7 +53,7 @@ public class HuffmanTreeTest
         };
 
         // Act
-        var result = testee.CreateHuffmanCode(dict);
+        var result = HuffmanCodeGenerator.CreateCode(dict);
 
         // Assert
         Assert.NotNull(result);
