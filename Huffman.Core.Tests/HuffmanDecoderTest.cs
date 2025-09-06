@@ -1,9 +1,9 @@
-﻿using Huffmann.Core.Decoder;
-using Huffmann.Core.Huffmann;
+﻿using Huffman.Core.Decoder;
+using Huffman.Core.Huffman;
 
-namespace Huffmann.Core.Tests;
+namespace Huffman.Core.Tests;
 
-public class HuffmannDecoderTest
+public class HuffmanDecoderTest
 {
     [Fact]
     public void Test_Decode_FromTable()
@@ -21,7 +21,7 @@ public class HuffmannDecoderTest
         var expected = "MISSISSIPPI";
 
         // Act
-        var result = HuffmannDecoder.Decode(encodedText, substitutionTable);
+        var result = HuffmanDecoder.Decode(encodedText, substitutionTable);
 
         // Assert
         Assert.NotNull(result);
@@ -38,50 +38,50 @@ public class HuffmannDecoderTest
         var expected = "MISSISSIPPI";
 
         // Act
-        var result = HuffmannDecoder.Decode(encodedText, tree);
+        var result = HuffmanDecoder.Decode(encodedText, tree);
 
         // Assert
         Assert.NotNull(result);
         Assert.Equal(expected, result);
     }
 
-    private IEnumerable<HuffmannNode> CreateTestTree()
+    private IEnumerable<Huffmanode> CreateTestTree()
     {
-        var m = new HuffmannNode
+        var m = new Huffmanode
         {
             CharSequenz = "M",
             Frequency = 1
         };
-        var p = new HuffmannNode
+        var p = new Huffmanode
         {
             CharSequenz = "P",
             Frequency = 2
         };
-        var mp = new HuffmannNode
+        var mp = new Huffmanode
         {
             CharSequenz = "MP",
             Frequency = 3,
             LeftChild = m,
             RightChild = p
         };
-        var i = new HuffmannNode
+        var i = new Huffmanode
         {
             CharSequenz = "I",
             Frequency = 4
         };
-        var s = new HuffmannNode
+        var s = new Huffmanode
         {
             CharSequenz = "S",
             Frequency = 4
         };
-        var mpi = new HuffmannNode
+        var mpi = new Huffmanode
         {
             CharSequenz = "MPI",
             Frequency = 6,
             LeftChild = mp,
             RightChild = i,
         };
-        var smpi = new HuffmannNode
+        var smpi = new Huffmanode
         {
             CharSequenz = "SMPI",
             Frequency = 10,
@@ -89,6 +89,6 @@ public class HuffmannDecoderTest
             RightChild = mpi
         };
 
-        return new List<HuffmannNode> { m, p, mp, i, s, mpi, smpi };
+        return new List<Huffmanode> { m, p, mp, i, s, mpi, smpi };
     }
 }

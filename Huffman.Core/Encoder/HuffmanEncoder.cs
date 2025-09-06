@@ -1,23 +1,23 @@
-﻿using Huffmann.Core.Huffmann;
+﻿using Huffman.Core.Huffman;
 
-namespace Huffmann.Core.Encoder;
+namespace Huffman.Core.Encoder;
 
-public static class HuffmannEncoder
+public static class HuffmanEncoder
 {
-    public static HuffmannCode Encode(string text)
+    public static HuffmanCode Encode(string text)
     {
         var dict = CountCharacters(text);
-        var huffmannTable = new HuffmannTree().CreateHuffmannCode(dict);
+        var HuffmanTable = new HuffmanTree().CreateHuffmanCode(dict);
 
         var encodedText = string.Empty;
         var chars = text.ToCharArray();
 
         foreach (var c in chars)
         {
-            encodedText += huffmannTable[c];
+            encodedText += HuffmanTable[c];
         }
 
-        return new (encodedText, huffmannTable);
+        return new (encodedText, HuffmanTable);
     }
 
     private static Dictionary<char, int> CountCharacters(string text)

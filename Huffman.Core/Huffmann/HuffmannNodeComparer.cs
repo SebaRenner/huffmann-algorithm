@@ -1,8 +1,8 @@
-﻿namespace Huffmann.Core.Huffmann;
+﻿namespace Huffman.Core.Huffman;
 
-public class HuffmannNodeComparer : IComparer<HuffmannNode>
+public class HuffmanNodeComparer : IComparer<Huffmanode>
 {
-    public int Compare(HuffmannNode? x, HuffmannNode? y)
+    public int Compare(Huffmanode? x, Huffmanode? y)
     {
         if (x == null && y == null)
             return 0;

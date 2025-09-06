@@ -1,8 +1,8 @@
-using Huffmann.Core.Encoder;
+using Huffman.Core.Encoder;
 
-namespace Huffmann.Core.Tests;
+namespace Huffman.Core.Tests;
 
-public class HuffmannEncoderTest
+public class HuffmanEncoderTest
 {
     [Fact]
     public void Test_Encode()
@@ -19,7 +19,7 @@ public class HuffmannEncoderTest
         };
 
         // Act
-        var code = HuffmannEncoder.Encode(input);
+        var code = HuffmanEncoder.Encode(input);
 
         // Assert
         Assert.NotNull(code.EncodedText);

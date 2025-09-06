@@ -1,31 +1,31 @@
-﻿using Huffmann.Core.Huffmann;
+﻿using Huffman.Core.Huffman;
 
-namespace Huffmann.Core.Tests;
+namespace Huffman.Core.Tests;
 
-public class HuffmannTreeTest
+public class HuffmanTreeTest
 {
     [Fact]
-    public void Test_CreateHuffmannCode_1Char()
+    public void Test_CreateHuffmanCode_1Char()
     {
         // Arrange
-        var testee = new HuffmannTree();
+        var testee = new HuffmanTree();
         var dict = new Dictionary<char, int>
         {
             { 'a', 2 },
         };
 
         // Act
-        var act = () => testee.CreateHuffmannCode(dict);
+        var act = () => testee.CreateHuffmanCode(dict);
 
         // Assert
         Assert.Throws<ArgumentException>(act);
     }
 
     [Fact]
-    public void Test_CreateHuffmannCode_2Chars()
+    public void Test_CreateHuffmanCode_2Chars()
     {
         // Arrange
-        var testee = new HuffmannTree();
+        var testee = new HuffmanTree();
         var dict = new Dictionary<char, int>
         {
             { 'a', 2 },
@@ -33,7 +33,7 @@ public class HuffmannTreeTest
         };
 
         // Act
-        var result = testee.CreateHuffmannCode(dict);
+        var result = testee.CreateHuffmanCode(dict);
 
         // Assert
         Assert.NotNull(result);
@@ -44,10 +44,10 @@ public class HuffmannTreeTest
 
 
     [Fact]
-    public void Test_CreateHuffmannCode_3Chars()
+    public void Test_CreateHuffmanCode_3Chars()
     {
         // Arrange
-        var testee = new HuffmannTree();
+        var testee = new HuffmanTree();
         var dict = new Dictionary<char, int>
         {
             { 'a', 2 },
@@ -56,7 +56,7 @@ public class HuffmannTreeTest
         };
 
         // Act
-        var result = testee.CreateHuffmannCode(dict);
+        var result = testee.CreateHuffmanCode(dict);
 
         // Assert
         Assert.NotNull(result);

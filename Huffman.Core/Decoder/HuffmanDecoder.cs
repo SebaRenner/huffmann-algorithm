@@ -1,8 +1,8 @@
-﻿using Huffmann.Core.Huffmann;
+﻿using Huffman.Core.Huffman;
 
-namespace Huffmann.Core.Decoder;
+namespace Huffman.Core.Decoder;
 
-public static class HuffmannDecoder
+public static class HuffmanDecoder
 {
     public static string Decode(string code, Dictionary<char, string> substitutionTable)
     {
@@ -36,13 +36,13 @@ public static class HuffmannDecoder
         return encodedText;
     }
 
-    public static string Decode(string code, IEnumerable<HuffmannNode> huffmannTree)
+    public static string Decode(string code, IEnumerable<Huffmanode> HuffmanTree)
     {
         var encodedText = string.Empty;
 
         while (code.Length > 0)
         {
-            var currentNode = huffmannTree.MaxBy(node => node.CharSequenz.Length);
+            var currentNode = HuffmanTree.MaxBy(node => node.CharSequenz.Length);
 
             while(code.Length > 0)
             {

@@ -1,20 +1,20 @@
-﻿using Huffmann.Core.Huffmann;
+﻿using Huffman.Core.Huffman;
 
-namespace Huffmann.Core.Tests;
+namespace Huffman.Core.Tests;
 
-public class HuffmannNodeComparerTest
+public class HuffmanodeComparerTest
 {
     [Fact]
     public void Test_Comparer_Smaller()
     {
         // Arrange
-        var comparer = new HuffmannNodeComparer();
-        var nodeA = new HuffmannNode
+        var comparer = new HuffmanNodeComparer();
+        var nodeA = new Huffmanode
         {
             CharSequenz = "A",
             Frequency = 1,
         };
-        var nodeB = new HuffmannNode
+        var nodeB = new Huffmanode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -31,13 +31,13 @@ public class HuffmannNodeComparerTest
     public void Test_Comparer_Bigger()
     {
         // Arrange
-        var comparer = new HuffmannNodeComparer();
-        var nodeA = new HuffmannNode
+        var comparer = new HuffmanNodeComparer();
+        var nodeA = new Huffmanode
         {
             CharSequenz = "A",
             Frequency = 3,
         };
-        var nodeB = new HuffmannNode
+        var nodeB = new Huffmanode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -54,13 +54,13 @@ public class HuffmannNodeComparerTest
     public void Test_Comparer_Equal()
     {
         // Arrange
-        var comparer = new HuffmannNodeComparer();
-        var nodeA = new HuffmannNode
+        var comparer = new HuffmanNodeComparer();
+        var nodeA = new Huffmanode
         {
             CharSequenz = "A",
             Frequency = 2,
         };
-        var nodeB = new HuffmannNode
+        var nodeB = new Huffmanode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -77,8 +77,8 @@ public class HuffmannNodeComparerTest
     public void Test_Comparer_Null_A()
     {
         // Arrange
-        var comparer = new HuffmannNodeComparer();
-        var nodeB = new HuffmannNode
+        var comparer = new HuffmanNodeComparer();
+        var nodeB = new Huffmanode
         {
             CharSequenz = "B",
             Frequency = 2,
@@ -95,8 +95,8 @@ public class HuffmannNodeComparerTest
     public void Test_Comparer_Null_B()
     {
         // Arrange
-        var comparer = new HuffmannNodeComparer();
-        var nodeA = new HuffmannNode
+        var comparer = new HuffmanNodeComparer();
+        var nodeA = new Huffmanode
         {
             CharSequenz = "A",
             Frequency = 2,
@@ -113,7 +113,7 @@ public class HuffmannNodeComparerTest
     public void Test_Comparer_Null_Both()
     {
         // Arrange
-        var comparer = new HuffmannNodeComparer();
+        var comparer = new HuffmanNodeComparer();
 
         // Act
         var result = comparer.Compare(null, null);

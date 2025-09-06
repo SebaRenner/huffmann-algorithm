@@ -23,6 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Huffmann.Core\Huffmann.Core.csproj" />
+    <ProjectReference Include="..\Huffman.Core\Huffman.Core.csproj" />
   </ItemGroup>
 </Project>

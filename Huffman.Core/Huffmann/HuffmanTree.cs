@@ -1,31 +1,31 @@
-﻿namespace Huffmann.Core.Huffmann;
+﻿namespace Huffman.Core.Huffman;
 
 // TODO: Class doens't follow SRP. Refactor it. 
 // Also why not static? 
-public class HuffmannTree
+public class HuffmanTree
 {
-    public Dictionary<char, string> CreateHuffmannCode(Dictionary<char, int> charFrequencyMap)
+    public Dictionary<char, string> CreateHuffmanCode(Dictionary<char, int> charFrequencyMap)
     {
         if (charFrequencyMap.Keys.Count < 2) throw new ArgumentException();
 
         var nodes = CreateNodes(charFrequencyMap);
         var tree = CreateTree(nodes);
-        return CreateHuffmannCode(tree);
+        return CreateHuffmanCode(tree);
     }
 
-    private IEnumerable<HuffmannNode> CreateNodes(Dictionary<char, int> charFrequencyMap)
+    private IEnumerable<Huffmanode> CreateNodes(Dictionary<char, int> charFrequencyMap)
     {
-        return charFrequencyMap.Keys.Select(c => new HuffmannNode
+        return charFrequencyMap.Keys.Select(c => new Huffmanode
         {
             CharSequenz = c.ToString(),
             Frequency = charFrequencyMap[c]
         });
     }
 
-    private IEnumerable<HuffmannNode> CreateTree(IEnumerable<HuffmannNode> nodes)
+    private IEnumerable<Huffmanode> CreateTree(IEnumerable<Huffmanode> nodes)
     {
-        var sorted = new SortedSet<HuffmannNode>(nodes);
-        var tree = new List<HuffmannNode>();
+        var sorted = new SortedSet<Huffmanode>(nodes);
+        var tree = new List<Huffmanode>();
 
         while (sorted.Count > 1)
         {
@@ -35,7 +35,7 @@ public class HuffmannTree
             var rightNode = sorted.MinBy(node => node.Frequency);
             sorted.Remove(rightNode);
 
-            var parent = new HuffmannNode
+            var parent = new Huffmanode
             {
                 CharSequenz = $"{leftNode.CharSequenz}{rightNode.CharSequenz}",
                 Frequency = leftNode.Frequency + rightNode.Frequency,
@@ -53,7 +53,7 @@ public class HuffmannTree
         return tree;
     }
 
-    private Dictionary<char, string> CreateHuffmannCode(IEnumerable<HuffmannNode> tree)
+    private Dictionary<char, string> CreateHuffmanCode(IEnumerable<Huffmanode> tree)
     {
         var table = new Dictionary<char, string>();
         if (!tree.Any()) return table;
@@ -85,23 +85,23 @@ public class HuffmannTree
         return table;
     }
 
-    private bool HasChildNode(HuffmannNode node)
+    private bool HasChildNode(Huffmanode node)
     {
         return node.LeftChild != null || node.RightChild != null;
     }
 
-    private bool HasCharInChild(HuffmannNode node, char target)
+    private bool HasCharInChild(Huffmanode node, char target)
     {
         return HasCharInLeftChildNode(node, target) || HasCharInRightChildNode(node, target);
     }
 
-    private bool HasCharInLeftChildNode(HuffmannNode node, char target)
+    private bool HasCharInLeftChildNode(Huffmanode node, char target)
     {
         if (node.LeftChild == null) return false;
         return node.LeftChild.CharSequenz.Contains(target);
     }
 
-    private bool HasCharInRightChildNode(HuffmannNode node, char target)
+    private bool HasCharInRightChildNode(Huffmanode node, char target)
     {
         if (node.RightChild == null) return false;
         return node.RightChild.CharSequenz.Contains(target);

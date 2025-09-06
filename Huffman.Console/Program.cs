@@ -1,7 +1,7 @@
-﻿using Huffmann.Core.Decoder;
-using Huffmann.Core.Encoder;
+﻿using Huffman.Core.Decoder;
+using Huffman.Core.Encoder;
 
-Console.WriteLine("Enter a text you'd like to be compressed using the huffmann algorithm");
+Console.WriteLine("Enter a text you'd like to be compressed using the Huffman algorithm");
 var input = string.Empty;
 
 while (input?.Length < 2)
@@ -10,24 +10,24 @@ while (input?.Length < 2)
 
     if (input.Length < 2)
     {
-        Console.WriteLine("The text needs to be at least two characters long for the huffmann algorithm to work");
+        Console.WriteLine("The text needs to be at least two characters long for the Huffman algorithm to work");
     }
 }
 
-var encodedText = HuffmannEncoder.Encode(input);
+var encodedText = HuffmanEncoder.Encode(input);
 
 var inputLength = input.Length * 8;
 var encodedTextLength = encodedText.EncodedText.Length;
 var compressionRate = Math.Round(100 - (double)encodedTextLength / inputLength * 100, 2);
 
-var decodedText = HuffmannDecoder.Decode(encodedText.EncodedText, encodedText.SubstitutionTable);
+var decodedText = HuffmanDecoder.Decode(encodedText.EncodedText, encodedText.SubstitutionTable);
 
 Console.WriteLine();
 Console.WriteLine($"Original Text: {inputLength} Bit");
 Console.WriteLine($"Huffman Coded: {encodedTextLength} Bit");
 Console.WriteLine($"Compression Rate: {compressionRate}%");
 Console.WriteLine("--------------------------------------");
-Console.WriteLine("The huffmann encoded text:");
+Console.WriteLine("The Huffman encoded text:");
 Console.WriteLine(encodedText.EncodedText);
 Console.WriteLine();
 Console.WriteLine("Decoded text:");
