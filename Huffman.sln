@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huffman.Core", "Huffman.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huffman.Core.Tests", "Huffman.Core.Tests\Huffman.Core.Tests.csproj", "{F54640A8-4097-4F1A-9980-1C3EEF8C3D8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huffman.IO", "Huffman.IO\Huffman.IO.csproj", "{2A5FC015-43A1-4A49-AD46-E2801E6A9CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F54640A8-4097-4F1A-9980-1C3EEF8C3D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F54640A8-4097-4F1A-9980-1C3EEF8C3D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F54640A8-4097-4F1A-9980-1C3EEF8C3D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A5FC015-43A1-4A49-AD46-E2801E6A9CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A5FC015-43A1-4A49-AD46-E2801E6A9CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A5FC015-43A1-4A49-AD46-E2801E6A9CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A5FC015-43A1-4A49-AD46-E2801E6A9CDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
