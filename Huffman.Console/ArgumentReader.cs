@@ -6,11 +6,11 @@ public class ArgumentReader
 {
     public string? Text { get; private set; }
 
-    public string? Command { get; private set; }
+    public ValidCommand? Command { get; private set; }
 
     public string? FilePath { get; private set; }
 
-    public void ReadArguments(string[] args) 
+    public void ReadArguments(string[] args)
     {
         switch (args.Length)
         {
@@ -22,8 +22,8 @@ public class ArgumentReader
                 Text = args[0];
                 break;
             case 2:
-                Command = args[0];
-                FilePath = args[1];
+                Command = ParseCommand(args[0]);
+                FilePath = args[1];  // should also be checked if file exists I guess
                 break;
             default:
                 throw new ArgumentException("Too many arguments provided.");
@@ -42,5 +42,23 @@ public class ArgumentReader
             }
         }
         return input;
+    }
+
+    private ValidCommand ParseCommand(string arg0) 
+    {
+        var command = arg0.ToLower();
+        if (command != "encode" && command != "decode")
+        {
+            throw new ArgumentException("Invalid command provided. Use 'encode' or 'decode'.");
+        }
+
+        if (command == "encode")
+        {
+            return ValidCommand.Encode;
+        }
+        else 
+        {
+            return ValidCommand.Decode;
+        }
     }
 }
