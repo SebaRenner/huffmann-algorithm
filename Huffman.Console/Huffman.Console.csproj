@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Huffman.Core\Huffman.Core.csproj" />
+    <ProjectReference Include="..\Huffman.IO\Huffman.IO.csproj" />
   </ItemGroup>
 
 </Project>
